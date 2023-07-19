@@ -1,6 +1,6 @@
 require('dotenv').config();
 const { Telegraf }= require('telegraf');
-const {KeyCheck,CreateCloud,TranslationMessage,KeyCheckPRO,NewsAll,NewsStocks,NewsCrypto,NewsForex,NewsIndices,NewsFutures,NewsEconomy} = require("./code/index.js");
+const {StocksOverview,KeyCheck,CreateCloud,TranslationMessage,KeyCheckPRO,NewsAll,NewsStocks,NewsCrypto,NewsForex,NewsIndices,NewsFutures,NewsEconomy} = require("./code/index.js");
 const bot = new Telegraf(process.env.TELEGRAM_PRO_BOT_KEY);
 async function AlcapaAiPro(){
  // ! [ [ ✅ ] ALCAPA PRO [ STARTING ] ] 
@@ -279,6 +279,47 @@ bot.action("NOTIMUNDIAL",(async (ctx) => {
       ctx.reply("Por favor digite /start pra inicializar de novo.")    
     }, 12000);
 },2000)
+}));
+// ! PRO [ RELATÓRIOS ]
+bot.action("RELATÓRIOS",(async (ctx) => {
+  console.log(`[ ✅ ] [ ALCAPA.AI [ ID: ${ctx.chat.id} | USER: ${ctx.chat.username}] ] ✅ [  ALCAPA PRO [ MENU | RELATÓRIOS ] ] ✅ [ ALCAPA.AI [ PRO ] ]`);  
+  ctx.reply("Qual tipos de relatório você gostaria?",{reply_markup:{
+    inline_keyboard:[
+      [{text:"AÇÕES 🪙 ", callback_data:"RELATÓRIOS_AÇÕES"},{text:"CRYPTO 🟡", callback_data:"RELATÓRIOS_CRYPTO"}],
+      [{text:"FOREX 🏦", callback_data:"RELATÓRIOS_FOREX"},{text:"ÍNDICES 💎", callback_data:"RELATÓRIOS_ÍNDICES"}],
+    ]
+  }
+})
+}));
+bot.action("RELATÓRIOS_AÇÕES",(async (ctx) => {
+  console.log(`[ ✅ ] [ ALCAPA.AI [ ID: ${ctx.chat.id} | USER: ${ctx.chat.username}] ] ✅ [  ALCAPA PRO [ MENU | RELATÓRIOS | AÇÕES ] ] ✅ [ ALCAPA.AI [ PRO ] ]`);  
+  ctx.reply("Qual tipos de relatório você gostaria?",{reply_markup:{
+    inline_keyboard:[
+      [{text:"VISÃO GERAL 🗃️", callback_data:"OVERVIEW_AÇÕES"},{text:"DECLARAÇÕES 🧮", callback_data:"STATEMENTS_AÇÕES"}],
+      [{text:"ESTATISTICAS 📊", callback_data:"STATISTICS_AÇÕES"},{text:"DIVIDENDOS 💹", callback_data:"DIVIDENDS_AÇÕES"}],
+      [{text:"GANHOS 💱", callback_data:"EARNINGS_AÇÕES"},{text:"RECEITA 🏦", callback_data:"REVENUE_AÇÕES"}],
+    ]
+  }
+})
+}));
+bot.action("OVERVIEW_AÇÕES",(async (ctx) => {
+  console.log(`[ ✅ ] [ ALCAPA.AI [ ID: ${ctx.chat.id} | USER: ${ctx.chat.username}] ] ✅ [  ALCAPA PRO [ MENU | RELATÓRIOS | AÇÕES ] ] ✅ [ ALCAPA.AI [ PRO ] ]`);  
+  let TextBool = true;
+  ctx.reply("Qual é tipo da ação?")
+  bot.on('text', (ctx) => {
+    if(TextBool){
+      
+      let FinanceOverview = StocksOverview(ctx.message.text,ctx.chat.id,ctx.chat.username).then(res => {
+        if(res.length==2){
+        ctx.reply(`${res[0][0]}: ${res[0][1]}\n${res[0][2]}: ${res[0][3]}\n${res[0][4]}:  ${res[0][5]}\n${res[0][6]}: ${res[0][7]}\n${res[0][8]}: ${res[0][9]}\n${res[0][10]}: ${res[0][11]}\n${res[0][12]}: ${res[0][13]}`)
+        TextBool = false;
+      }else if (res.length==1){
+          ctx.reply(res[0])
+          TextBool = false;
+        }
+      })
+      }
+  })
 }));
   bot.startPolling();
 }

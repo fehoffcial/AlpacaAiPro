@@ -3,8 +3,8 @@ function KeyCheck(ID,USER){
   console.log(`[ ✅ ] [ ALCAPA.AI [ ID: ${ID} | USER: ${USER}] ] ✅ [ CHECK KEY ] ✅ [ ALCAPA.AI [ PRO ] ]`);
   let Pro = []
   let Temporary = []
-  let KeyPro = (fs.readFileSync("/home/debian/Github/AlcapaAiPro/code/asset/key/KeyPro.txt", "utf8"));
-  let KeyTemporary = (fs.readFileSync("/home/debian/Github/AlcapaAiPro/code/asset/key/KeyTemporary.txt", "utf8"));
+  let KeyPro = (fs.readFileSync("/home/debian/Github/AlpacaAiPro/code/asset/key/KeyPro.txt", "utf8"));
+  let KeyTemporary = (fs.readFileSync("/home/debian/Github/AlpacaAiPro/code/asset/key/KeyTemporary.txt", "utf8"));
   Temporary.push(KeyTemporary.split("KeyTemporary@"));
   Pro.push(KeyPro.split("KeyPro@"));
   for (let i = 0; i < Pro[0].length; i++) {
@@ -23,8 +23,8 @@ function KeyCheckPRO(ID,USER){
   console.log(`[ ✅ ] [ ALCAPA.AI [ ID: ${ID} | USER: ${USER}] ] ✅ [ CHECK KEY ] ✅ [ ALCAPA.AI [ PRO ] ]`);
   let Pro = []
   let Temporary = []
-  let KeyPro = (fs.readFileSync("/home/debian/Github/AlcapaAiPro/code/asset/key/KeyPro.txt", "utf8"));
-  let KeyTemporary = (fs.readFileSync("/home/debian/Github/AlcapaAiPro/code/asset/key/KeyTemporary.txt", "utf8"));
+  let KeyPro = (fs.readFileSync("/home/debian/Github/AlpacaAiPro/code/asset/key/KeyPro.txt", "utf8"));
+  let KeyTemporary = (fs.readFileSync("/home/debian/Github/AlpacaAiPro/code/asset/key/KeyTemporary.txt", "utf8"));
   Temporary.push(KeyTemporary.split("KeyTemporary@"));
   Pro.push(KeyPro.split("KeyPro@"));
   for (let i = 0; i < Pro[0].length; i++) {
@@ -43,8 +43,8 @@ function KeyCheckCloud(ID,USER){
   console.log(`[ ✅ ] [ ALCAPA.AI [ ID: ${ID} | USER: ${USER}] ] ✅ [ CHECK KEY ] ✅ [ ALCAPA.AI [ PRO ] ]`);
   let Pro = []
   let Temporary = []
-  let KeyPro = (fs.readFileSync("/home/debian/Github/AlcapaAiPro/code/asset/key/KeyPro.txt", "utf8"));
-  let KeyTemporary = (fs.readFileSync("/home/debian/Github/AlcapaAiPro/code/asset/key/KeyTemporary.txt", "utf8"));
+  let KeyPro = (fs.readFileSync("/home/debian/Github/AlpacaAiPro/code/asset/key/KeyPro.txt", "utf8"));
+  let KeyTemporary = (fs.readFileSync("/home/debian/Github/AlpacaAiPro/code/asset/key/KeyTemporary.txt", "utf8"));
   Temporary.push(KeyTemporary.split("KeyTemporary@"));
   Pro.push(KeyPro.split("KeyPro@"));
   for (let i = 0; i < Pro[0].length; i++) {
